@@ -12,4 +12,4 @@ Abra una terminal en la raíz del proyecto y ejecute la siguiente secuencia de c
 
 
 #Nota
-Se uso mayormente el ingles para tener una mejor coherencia con la parte de stack
+Se uso mayormente el ingles para tener una mejor coherencia con la parte de stack, ademas, lo hice yo solo 
