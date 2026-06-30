@@ -1,6 +1,6 @@
 # Laboratorio-5
 El ultimo lab!!!
-Abra una terminal en la raíz del proyecto (~/Desktop/Laboratorio-5) y ejecute la siguiente secuencia de comandos:
+Abra una terminal en la raíz del proyecto y ejecute la siguiente secuencia de comandos:
 
 1. Limpiar ejecutables y archivos objeto previos
 make clean
