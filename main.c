@@ -1,39 +1,62 @@
-#include "dynamic_array.h"
 #include <stdio.h>
+#include "dynamic_array.h"
+#include "linked_list.h"
+#include "doubly_linked_list.h"
+#include "stack.h"
 
 int main() {
-    printf("=== PRUEBAS DE ARREGLO DINÁMICO ===\n\n");
+    printf("==================================================\n");
+    printf("   LABORATORIO 5: ESTRUCTURAS DE DATOS GLOBALES   \n");
+    printf("==================================================\n\n");
 
-    printf("1. Creando arreglo dinámico con capacidad inicial de 2...\n");
-    DynamicArray *mi_arreglo = create_array(2);
-    if (!mi_arreglo) {
-        printf("Error al asignar memoria para el arreglo.\n");
-        return 1;
+    // 1. PRUEBAS DE ARREGLO DINÁMICO
+    printf(">>> 1. PRUEBAS DE ARREGLO DINÁMICO <<<\n");
+    DynamicArray *arr = create_array(5);
+    if (arr) {
+        insert_element(arr, 10);
+        insert_element(arr, 20);
+        insert_element(arr, 30);
+        print_array(arr);
+        free_array(arr);
     }
-    print_array(mi_arreglo);
+    printf("\n");
 
-    printf("\n2. Agregando elementos: 10, 20, 30...\n");
-    append_element(mi_arreglo, 10);
-    append_element(mi_arreglo, 20);
-    append_element(mi_arreglo, 30);
-    print_array(mi_arreglo);
-    printf("Tamaño actual: %zu, Capacidad actual: %zu\n", mi_arreglo->size, mi_arreglo->capacity);
-
-    printf("\n3. Obteniendo elemento en el índice 1...\n");
-    int valor;
-    if (get_element(mi_arreglo, 1, &valor)) {
-        printf("El valor en el índice 1 es: %d\n", valor);
-    } else {
-        printf("Índice fuera de rango.\n");
+    // 2. PRUEBAS DE LISTA ENLAZADA SIMPLE
+    printf(">>> 2. PRUEBAS DE LISTA ENLAZADA SIMPLE <<<\n");
+    LinkedList *lista_simple = create_list();
+    if (lista_simple) {
+        insert_start(lista_simple, 10);
+        insert_end(lista_simple, 20);
+        insert_position(lista_simple, 15, 1);
+        print_list(lista_simple);
+        free_list(lista_simple);
     }
+    printf("\n");
 
-    printf("\n4. Eliminando el elemento en el índice 0 (el 10)...\n");
-    delete_element(mi_arreglo, 0);
-    print_array(mi_arreglo);
+    // 3. PRUEBAS DE LISTA DOBLEMENTE ENLAZADA
+    printf(">>> 3. PRUEBAS DE LISTA DOBLEMENTE ENLAZADA <<<\n");
+    DoublyLinkedList *lista_doble = create_double_list();
+    if (lista_doble) {
+        insert_double_start(lista_doble, 50);
+        insert_double_end(lista_doble, 60);
+        print_double_forward(lista_doble);
+        free_double_list(lista_doble);
+    }
+    printf("\n");
 
-    printf("\n5. Liberando memoria del arreglo...\n");
-    free_array(mi_arreglo);
-    printf("¡Memoria liberada exitosamente!\n");
+    // 4. PRUEBAS DE PILA (STACK)
+    printf(">>> 4. PRUEBAS DE PILA (STACK) <<<\n");
+    Stack *mi_pila = create_stack();
+    if (mi_pila) {
+        push(mi_pila, 100);
+        push(mi_pila, 200);
+        print_stack(mi_pila);
+        free_stack(mi_pila);
+    }
+    
+    printf("\n==================================================\n");
+    printf("   ¡TODAS LAS PRUEBAS CONCLUIDAS EXITOSAMENTE!    \n");
+    printf("==================================================\n");
 
     return 0;
 }
