@@ -1,33 +1,41 @@
-#include "doubly_linked_list.h"
+#include "stack.h"
 #include <stdio.h>
 
 int main() {
-    printf("=== PRUEBAS DE LISTA DOBLEMENTE ENLAZADA ===\n\n");
+    printf("=== PRUEBAS DE PILA (STACK) ===\n\n");
 
-    printf("1. Creando lista doble vacía...\n");
-    DoublyLinkedList *mi_lista_doble = create_double_list();
-    if (!mi_lista_doble) {
-        printf("Error al asignar memoria para la lista.\n");
+    printf("1. Creando pila vacía...\n");
+    Stack *mi_pila = create_stack();
+    if (!mi_pila) {
+        printf("Error al asignar memoria para la pila.\n");
         return 1;
     }
-    print_double_forward(mi_lista_doble);
+    print_stack(mi_pila);
 
-    printf("\n2. Insertando elementos (50 al inicio, 60 al final, 40 al inicio)...\n");
-    insert_double_start(mi_lista_doble, 50);
-    insert_double_end(mi_lista_doble, 60);
-    insert_double_start(mi_lista_doble, 40);
-    
-    print_double_forward(mi_lista_doble);
-    print_double_backward(mi_lista_doble);
+    printf("\n2. Apilando elementos (Push: 100, 200, 300)...\n");
+    push(mi_pila, 100);
+    push(mi_pila, 200);
+    push(mi_pila, 300);
+    print_stack(mi_pila);
 
-    printf("\n3. Eliminando el elemento central (50)...\n");
-    delete_double_by_data(mi_lista_doble, 50);
-    
-    print_double_forward(mi_lista_doble);
-    print_double_backward(mi_lista_doble);
+    printf("\n3. Consultando el elemento en el tope (Peek)...\n");
+    int valor_tope;
+    if (peek(mi_pila, &valor_tope)) {
+        printf("El elemento en el tope es: %d\n", valor_tope);
+    }
 
-    printf("\n4. Liberando memoria de la lista doble...\n");
-    free_double_list(mi_lista_doble);
+    printf("\n4. Desapilando dos elementos (Pop)...\n");
+    int valor_desapilado;
+    if (pop(mi_pila, &valor_desapilado)) {
+        printf("Desapilado: %d\n", valor_desapilado);
+    }
+    if (pop(mi_pila, &valor_desapilado)) {
+        printf("Desapilado: %d\n", valor_desapilado);
+    }
+    print_stack(mi_pila);
+
+    printf("\n5. Liberando memoria de la pila...\n");
+    free_stack(mi_pila);
     printf("¡Memoria liberada exitosamente!\n");
 
     return 0;
