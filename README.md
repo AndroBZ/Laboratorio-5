@@ -9,3 +9,7 @@ Abra una terminal en la raíz del proyecto y ejecute la siguiente secuencia de c
 
 3. Ejecutar el programa de pruebas unificado para efectuar las pruebas de todas las estructuras de datos
 "./programa_pruebas"
+
+
+#Nota
+Se uso mayormente el ingles para tener una mejor coherencia con la parte de stack
